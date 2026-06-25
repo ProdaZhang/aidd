@@ -1,5 +1,7 @@
 # AIDD — AI-assisted Design→Dev (portable skill)
 
+[![tests](https://github.com/ProdaZhang/aidd/actions/workflows/tests.yml/badge.svg)](https://github.com/ProdaZhang/aidd/actions/workflows/tests.yml)
+
 *Brainstorm a system's design with one AI; hand the result to another AI to build it — backed by deterministic checkers that won't let a broken handoff through. Game systems or app/SaaS features, same engine.*
 
 > 🧬 Game-focused sibling: **[ProdaZhang/aigd](https://github.com/ProdaZhang/aigd)** (AIDD is the domain-neutral evolution, with an app example).
