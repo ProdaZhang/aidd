@@ -1,0 +1,27 @@
+name: tests
+
+# AIDD checker/tool script tests. Pure stdlib runner (not pytest): each test file
+# runs all test_* under if __name__=="__main__", sets the exit code by failure count.
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Install optional deps (openpyxl/Pillow)
+        run: pip install -r aidd/references/scripts/requirements.txt
+      - name: Run test suite
+        working-directory: aidd/references/scripts
+        run: |
+          rc=0
+          for t in tests/test_*.py; do
+            echo "== $t =="
+            python "$t" || rc=1
+          done
+          exit $rc
