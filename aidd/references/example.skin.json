@@ -1,0 +1,15 @@
+{
+  "_about": "Sample theme skin — colors by DSL type, demonstrating the use of ui_render.py --skin (ui_render.py <screenID>.md out.html --skin <this file>). Keys = DSL types; @canvas is a reserved key (canvas background color + default text); a variant (e.g. button·primary) not listed falls back to the base type (button). This file is a sample only; users replace the coloring per their own art style / visual spec (designated by project-charter"Art Style / Brand").",
+  "@canvas":  { "fill": "#faf9f5", "ink": "#141413" },
+  "bgSlot":   { "fill": "#f5f0e8", "ink": "#6c6a64" },
+  "artSlot":   { "fill": "#efe9de", "ink": "#6c6a64" },
+  "container":     { "fill": "#f5f0e8", "ink": "#3d3d3a" },
+  "panel":     { "fill": "#efe9de", "ink": "#141413" },
+  "button":     { "fill": "#cc785c", "ink": "#ffffff" },
+  "button·secondary":  { "fill": "#e8e0d2", "ink": "#141413" },
+  "text":     { "fill": "", "ink": "#3d3d3a" },
+  "iconSlot":   { "fill": "#efe9de", "ink": "#cc785c" },
+  "valueBar":   { "fill": "#e8e0d2", "ink": "#141413" },
+  "decoration":     { "fill": "#e8e0d2", "ink": "#8e8b82" },
+  "chrome":   { "fill": "#f5f0e8", "ink": "#3d3d3a" }
+}

@@ -1,0 +1,4 @@
+# AIDD script dependencies. See README.md for details.
+# Pure stdlib (no install needed): ui_render / xlsx_dump / resolve_loc / config_index / config_check / value_check / manifest_check
+openpyxl>=3.0      # gherkin_to_checklist.py writes xlsx (write side only; reading xlsx always goes via xlsx_dump)
+Pillow>=9.0        # ui_palette.py / ui_slice.py image color-sampling/slicing

@@ -1,0 +1,39 @@
+{
+  "_about": "value_check domain rules · illustrative sample (table/field names are all placeholders, not any specific project). Rule types/fields see the spec at the top of value_check.py; for a real project, create <system>.checks.json in the config directory following this structure.",
+  "rules": [
+    {
+      "type": "cardinality",
+      "severity": "advisory",
+      "desc": "Illustrative: evolution-chain member count -1 vs that quality's evolvable count. If at runtime it's always capped by quality and the chain overflow = intentional fill-out (the excess members unreachable), then only an advisory hint (not a major block), for the designer to verify whether they really intend to leave unreachable members",
+      "array_table": "evolveLine",
+      "array_field": "unit",
+      "member_table": "unit",
+      "member_rarity_field": "rarity",
+      "limit_table": "rarityCap",
+      "limit_field": "evolution"
+    },
+    {
+      "type": "coverage",
+      "desc": "Illustrative: the level table's id contiguously covers 1~200, with no gap",
+      "table": "levelTable",
+      "field": "id",
+      "min": 1,
+      "max": 200
+    },
+    {
+      "type": "monotonic",
+      "desc": "Illustrative: the level-up stats bonus is monotonically non-decreasing with level (cumulative value)",
+      "table": "levelTable",
+      "field": "HpPercentage",
+      "order_field": "id"
+    },
+    {
+      "type": "monotonic",
+      "desc": "Illustrative: the star-up stats bonus is monotonically non-decreasing with star (grouped by same quality + same element)",
+      "table": "starTable",
+      "field": "HpPercentage",
+      "order_field": "star",
+      "group_fields": ["rarity", "element"]
+    }
+  ]
+}

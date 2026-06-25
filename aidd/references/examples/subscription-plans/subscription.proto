@@ -1,0 +1,24 @@
+syntax = "proto3";
+// Subscription plans & quotas interface contract (app example). Client = server, one and the same.
+
+// ---- Subscribe R-SUB-PLAN ----
+message C2S_Subscribe { int32 planId = 1; }                 // 2100
+message S2C_Subscribe {
+  int32 err  = 1;   // 0=OK / ERR_QUOTA_EXCEEDED / ERR_USAGE_OVER_TARGET
+  int32 tier = 2;   // granted tier (= plan.tier)
+}
+
+// ---- Quota check R-SUB-QUOTA ----
+message C2S_CheckQuota { int32 resource = 1; }              // 2101
+message S2C_CheckQuota {
+  int32 err     = 1;
+  int32 limit   = 2;  // planTier[plan.tier].<resource>
+  int32 used    = 3;  // from the usage system [external]
+  bool  allowed = 4;
+}
+
+// ---- Tier change R-SUB-CHANGE ----
+message C2S_ChangePlan { int32 planId = 1; }                // 2102
+message S2C_ChangePlan {
+  int32 err = 1;      // 0=OK / ERR_USAGE_OVER_TARGET on downgrade
+}
